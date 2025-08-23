@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人网站</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 科幻背景元素 -->
+    <div class="sci-fi-grid"></div>
+    <div class="sci-fi-glow"></div>
+    <div class="sci-fi-glow"></div>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="logo">我的网站</div>
+        <div class="nav-links">
+            <a href="javascript:void(0)" onclick="showPage('home')">首页</a>
+            <a href="javascript:void(0)" onclick="showPage('about')">关于我</a>
+            <a href="javascript:void(0)" onclick="showPage('projects')">项目</a>
+            <a href="javascript:void(0)" onclick="showPage('contact')">联系</a>
+        </div>
+    </nav>
+
+    <div class="page-container">
+
+    <!-- 首页 -->
+    <div id="home" class="page active-page">
+        <section class="hero">
+            <div class="particles"></div>
+            <div class="hero-content">
+                <div class="animated-logo">
+                    <svg width="150" height="150" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="45" fill="none" stroke="#0099ff" stroke-width="2"/>
+                        <path d="M30,50 Q50,30 70,50 T30,50" fill="none" stroke="#0099ff" stroke-width="2"/>
+                        <path d="M30,50 Q50,70 70,50 T30,50" fill="none" stroke="#0099ff" stroke-width="2"/>
+                    </svg>
+                </div>
+                <h1 class="animate-text">全栈架构师</h1>
+                <p class="animate-subtext">数字化转型领航者</p>
+                <div class="scrolldown-indicator"></div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 关于我页面 -->
+    <div id="about" class="page">
+        <button class="back-button" onclick="showPage('home')">返回首页</button>
+        <section class="section" id="about-section">
+            <div class="container">
+                <h2>关于我</h2>
+                <div class="about-content">
+                    <!-- 科技感头像 -->
+                    <div class="profile-picture tech-profile">
+                        <div class="tech-border">
+                            <div class="tech-circle"></div>
+                            <div class="placeholder-image tech-avatar"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- 动态标签 -->
+                    <div class="tech-tags">
+                        <span class="tech-tag">全栈架构师</span>
+                        <span class="tech-tag">技术专家</span>
+                        <span class="tech-tag">数字化转型</span>
+                        <span class="tech-tag">高并发</span>
+                        <span class="tech-tag">性能优化</span>
+                    </div>
+                    
+                    <div class="bio">
+                        <p class="tech-intro">20年全栈开发经验，从静态网页到分布式系统的技术演进亲历者。擅长高并发架构设计、性能优化和技术团队管理。</p>
+                        
+                        <!-- 科技感技术栈展示 -->
+                        <div class="tech-stack-container">
+                            <h3>技术栈概览</h3>
+                            <div class="tech-categories">
+                                <div class="tech-category">
+                                    <h4 class="tech-category-title">前端技术</h4>
+                                    <div class="tech-items">
+                                        <span class="tech-item">HTML5</span>
+                                        <span class="tech-item">CSS3</span>
+                                        <span class="tech-item">JavaScript</span>
+                                        <span class="tech-item">React</span>
+                                        <span class="tech-item">Vue</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="tech-category">
+                                    <h4 class="tech-category-title">后端技术</h4>
+                                    <div class="tech-items">
+                                        <span class="tech-item">Node.js</span>
+                                        <span class="tech-item">Python</span>
+                                        <span class="tech-item">Java</span>
+                                        <span class="tech-item">Spring Boot</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="tech-category">
+                                    <h4 class="tech-category-title">数据库技术</h4>
+                                    <div class="tech-items">
+                                        <span class="tech-item">MongoDB</span>
+                                        <span class="tech-item">MySQL</span>
+                                        <span class="tech-item">PostgreSQL</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="tech-category">
+                                    <h4 class="tech-category-title">部署技术</h4>
+                                    <div class="tech-items">
+                                        <span class="tech-item">Docker</span>
+                                        <span class="tech-item">Kubernetes</span>
+                                        <span class="tech-item">AWS</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p class="tech-outro">我热衷于技术创新，并不断挑战自我以提升技能。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 项目页面 -->
+    <div id="projects" class="page">
+        <button class="back-button" onclick="showPage('home')">返回首页</button>
+        <section class="section" id="projects-section">
+            <div class="container">
+                <h2>项目展示</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <div class="project-image"></div>
+                        <h3>电商平台架构重构</h3>
+                        <p>将传统单体应用拆分为微服务架构，性能提升400%。</p>
+                        <div class="tech-stack">Spring Cloud, Docker, Kubernetes</div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image"></div>
+                        <h3>实时数据可视化系统</h3>
+                        <p>基于WebGL和WebSocket的大数据实时展示平台。</p>
+                        <div class="tech-stack">React, Node.js, WebGL</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 联系页面 -->
+    <div id="contact" class="page">
+        <button class="back-button" onclick="showPage('home')">返回首页</button>
+        <section class="section" id="contact-section">
+            <div class="container">
+                <h2>联系</h2>
+                <p>有项目需求或技术交流？欢迎随时联系我。</p>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">姓名</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">邮箱</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">留言</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit">发送</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <p>邮箱: contact@example.com</p>
+                    <p>电话: 123-456-7890</p>
+                    <p>地址: 北京市海淀区科技园区</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2024 牛刀小试. 保留所有权利</p>
+        </div>
+    </footer>
+<script>
+        // 页面切换函数
+        function showPage(pageId) {
+            // 隐藏所有页面
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.classList.remove('active-page');
+            });
+
+            // 显示目标页面
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) {
+                targetPage.classList.add('active-page');
+                // 重置滚动位置
+                window.scrollTo(0, 0);
+            }
+        }
+
+        // 粒子系统
+        function createParticles() {
+            const particlesContainer = document.querySelector('.particles');
+            if (!particlesContainer) return;
+
+            const particleCount = 100;
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+
+                // 随机位置
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                particle.style.left = `${x}%`;
+                particle.style.top = `${y}%`;
+
+                // 随机大小
+                const size = Math.random() * 5 + 1;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+
+                // 随机动画延迟
+                particle.style.animationDelay = `${Math.random() * 5}s`;
+
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // 初始化
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            initClickEffects();
+        });
+
+        // 鼠标点击特效
+        function initClickEffects() {
+            document.addEventListener('click', (e) => {
+                const clickEffect = document.createElement('div');
+                clickEffect.classList.add('click-effect');
+                clickEffect.style.left = `${e.clientX - 50}px`;
+                clickEffect.style.top = `${e.clientY - 50}px`;
+                document.body.appendChild(clickEffect);
+
+                // 添加动画
+                setTimeout(() => {
+                    clickEffect.style.transition = 'all 0.8s cubic-bezier(0.22, 1, 0.36, 1)';
+                    clickEffect.style.transform = 'scale(1.5)';
+                    clickEffect.style.opacity = '0';
+                }, 10);
+
+                // 移除元素
+                setTimeout(() => {
+                    document.body.removeChild(clickEffect);
+                }, 900);
+            });
+        }
+    </script>
+</body>
+</html>
