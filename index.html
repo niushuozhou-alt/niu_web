@@ -43,79 +43,244 @@
         </section>
     </div>
 
-    <!-- 关于我页面 -->
+    <!-- 关于我页面 - 嵌入式专业简历 -->
     <div id="about" class="page">
         <button class="back-button" onclick="showPage('home')">返回首页</button>
         <section class="section" id="about-section">
             <div class="container">
-                <h2>关于我</h2>
-                <div class="about-content">
-                    <!-- 科技感头像 -->
-                    <div class="profile-picture tech-profile">
-                        <div class="tech-border">
-                            <div class="tech-circle"></div>
-                            <div class="placeholder-image tech-avatar"></div>
+                <!-- 密码保护界面 -->
+                <div id="password-protection" class="password-container">
+                    <div class="password-box">
+                        <h2>安全访问</h2>
+                        <p>请输入密码查看嵌入式工程师简历</p>
+                        <input type="password" id="password-input" placeholder="请输入密码" class="password-input">
+                        <button id="password-submit" class="password-submit">访问</button>
+                        <p id="password-error" class="password-error"></p>
+                    </div>
+                </div>
+                
+                <!-- 简历内容（默认隐藏） -->
+                <div id="resume-content" class="resume-content hidden">
+                    <h2>嵌入式工程师简历</h2>
+                    <div class="about-content">
+                        <!-- 科技感头像 -->
+                        <div class="profile-picture tech-profile">
+                            <div class="tech-border">
+                                <div class="tech-circle"></div>
+                                <div class="placeholder-image tech-avatar"></div>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <!-- 动态标签 -->
-                    <div class="tech-tags">
-                        <span class="tech-tag">全栈架构师</span>
-                        <span class="tech-tag">技术专家</span>
-                        <span class="tech-tag">数字化转型</span>
-                        <span class="tech-tag">高并发</span>
-                        <span class="tech-tag">性能优化</span>
-                    </div>
-                    
-                    <div class="bio">
-                        <p class="tech-intro">20年全栈开发经验，从静态网页到分布式系统的技术演进亲历者。擅长高并发架构设计、性能优化和技术团队管理。</p>
+                        
+                        <!-- 个人信息 -->
+                        <div class="personal-info">
+                            <h3>基本信息</h3>
+                            <div class="info-grid">
+                                <div class="info-item">
+                                    <span class="info-label">姓名：</span>
+                                    <span class="info-value">张同学</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">专业：</span>
+                                    <span class="info-value">嵌入式系统工程</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">学历：</span>
+                                    <span class="info-value">本科在读</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">学校：</span>
+                                    <span class="info-value">XX科技大学</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">邮箱：</span>
+                                    <span class="info-value">student@example.com</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">电话：</span>
+                                    <span class="info-value">138-XXXX-XXXX</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 动态标签 -->
+                        <div class="tech-tags">
+                            <span class="tech-tag">嵌入式开发</span>
+                            <span class="tech-tag">单片机</span>
+                            <span class="tech-tag">ARM</span>
+                            <span class="tech-tag">C/C++</span>
+                            <span class="tech-tag">传感器</span>
+                            <span class="tech-tag">物联网</span>
+                        </div>
+                        
+                        <!-- 个人简介 -->
+                        <div class="bio">
+                            <p class="tech-intro">热爱嵌入式技术的大学生，熟悉多种单片机和嵌入式系统开发。具备良好的硬件基础和编程能力，对物联网、智能硬件等领域有浓厚兴趣。积极参与各类科技竞赛和项目实践，不断提升自己的专业技能。</p>
+                        </div>
+                        
+                        <!-- 教育背景 -->
+                        <div class="education-section">
+                            <h3>教育背景</h3>
+                            <div class="education-item">
+                                <div class="education-header">
+                                    <h4>XX科技大学 - 嵌入式系统工程专业</h4>
+                                    <span class="education-date">2020年9月 - 2024年6月（预计）</span>
+                                </div>
+                                <p class="education-description">主修课程：嵌入式系统原理、单片机原理与应用、数字电路、模拟电路、C/C++程序设计、数据结构、操作系统、计算机网络等。</p>
+                                <p class="education-gpa">GPA：3.8/4.0 (专业排名前5%)</p>
+                            </div>
+                        </div>
                         
                         <!-- 科技感技术栈展示 -->
                         <div class="tech-stack-container">
-                            <h3>技术栈概览</h3>
+                            <h3>专业技能</h3>
                             <div class="tech-categories">
                                 <div class="tech-category">
-                                    <h4 class="tech-category-title">前端技术</h4>
+                                    <h4 class="tech-category-title">编程语言</h4>
                                     <div class="tech-items">
-                                        <span class="tech-item">HTML5</span>
-                                        <span class="tech-item">CSS3</span>
-                                        <span class="tech-item">JavaScript</span>
-                                        <span class="tech-item">React</span>
-                                        <span class="tech-item">Vue</span>
-                                    </div>
-                                </div>
-                                
-                                <div class="tech-category">
-                                    <h4 class="tech-category-title">后端技术</h4>
-                                    <div class="tech-items">
-                                        <span class="tech-item">Node.js</span>
+                                        <span class="tech-item">C</span>
+                                        <span class="tech-item">C++</span>
                                         <span class="tech-item">Python</span>
-                                        <span class="tech-item">Java</span>
-                                        <span class="tech-item">Spring Boot</span>
+                                        <span class="tech-item">Verilog</span>
                                     </div>
                                 </div>
                                 
                                 <div class="tech-category">
-                                    <h4 class="tech-category-title">数据库技术</h4>
+                                    <h4 class="tech-category-title">硬件平台</h4>
                                     <div class="tech-items">
-                                        <span class="tech-item">MongoDB</span>
-                                        <span class="tech-item">MySQL</span>
-                                        <span class="tech-item">PostgreSQL</span>
+                                        <span class="tech-item">STM32</span>
+                                        <span class="tech-item">Arduino</span>
+                                        <span class="tech-item">51单片机</span>
+                                        <span class="tech-item">ARM Cortex</span>
                                     </div>
                                 </div>
                                 
                                 <div class="tech-category">
-                                    <h4 class="tech-category-title">部署技术</h4>
+                                    <h4 class="tech-category-title">开发工具</h4>
                                     <div class="tech-items">
-                                        <span class="tech-item">Docker</span>
-                                        <span class="tech-item">Kubernetes</span>
-                                        <span class="tech-item">AWS</span>
+                                        <span class="tech-item">Keil</span>
+                                        <span class="tech-item">IAR</span>
+                                        <span class="tech-item">Altium Designer</span>
+                                        <span class="tech-item">MATLAB</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="tech-category">
+                                    <h4 class="tech-category-title">其他技能</h4>
+                                    <div class="tech-items">
+                                        <span class="tech-item">传感器技术</span>
+                                        <span class="tech-item">通信协议</span>
+                                        <span class="tech-item">Linux系统</span>
+                                        <span class="tech-item">物联网</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         
-                        <p class="tech-outro">我热衷于技术创新，并不断挑战自我以提升技能。</p>
+                        <!-- 项目经历 -->
+                        <div class="projects-section">
+                            <h3>项目经历</h3>
+                            <div class="project-experience">
+                                <div class="project-item">
+                                    <h4>智能温控系统设计</h4>
+                                    <span class="project-date">2023年3月 - 2023年6月</span>
+                                    <p class="project-description">基于STM32单片机设计的智能温控系统，实现温度采集、显示和控制功能。使用PID算法进行温度调节，通过触摸屏进行参数设置。</p>
+                                    <div class="project-tech">
+                                        <span class="tech-item">STM32</span>
+                                        <span class="tech-item">PID算法</span>
+                                        <span class="tech-item">温度传感器</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="project-item">
+                                    <h4>物联网智能门锁</h4>
+                                    <span class="project-date">2022年9月 - 2022年12月</span>
+                                    <p class="project-description">设计并实现基于ESP8266的智能门锁系统，支持手机APP远程控制和密码解锁功能。使用WiFi模块实现与云端通信。</p>
+                                    <div class="project-tech">
+                                        <span class="tech-item">ESP8266</span>
+                                        <span class="tech-item">物联网</span>
+                                        <span class="tech-item">蓝牙通信</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 获奖情况 -->
+                        <div class="awards-section">
+                            <h3>获奖情况</h3>
+                            <div class="awards-list">
+                                <div class="award-item">
+                                    <div class="award-content">
+                                        <h4>全国大学生电子设计竞赛一等奖</h4>
+                                        <span class="award-date">2023年8月</span>
+                                    </div>
+                                    <div class="award-image-container">
+                                        <div class="award-image-wrapper">
+                                            <!-- 科技感奖状SVG占位图 -->
+                                            <svg class="award-image" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                                <rect width="100" height="100" rx="5" fill="rgba(10,14,23,0.8)" stroke="#0099ff" stroke-width="1"/>
+                                                <rect x="5" y="5" width="90" height="90" rx="3" fill="none" stroke="#00ffff" stroke-width="0.5" stroke-dasharray="2"/>
+                                                <circle cx="50" cy="30" r="15" fill="none" stroke="#0099ff" stroke-width="1"/>
+                                                <text x="50" y="30" text-anchor="middle" dominant-baseline="middle" font-size="4" fill="#00ffff">一等奖</text>
+                                                <path d="M20,60 L80,60" stroke="#0099ff" stroke-width="1" stroke-dasharray="1,1"/>
+                                                <path d="M20,65 L80,65" stroke="#0099ff" stroke-width="1" stroke-dasharray="1,1"/>
+                                                <path d="M20,70 L80,70" stroke="#0099ff" stroke-width="1" stroke-dasharray="1,1"/>
+                                                <circle cx="20" cy="20" r="2" fill="#00ffff" opacity="0.5"/>
+                                                <circle cx="80" cy="20" r="2" fill="#00ffff" opacity="0.5"/>
+                                                <circle cx="20" cy="80" r="2" fill="#00ffff" opacity="0.5"/>
+                                                <circle cx="80" cy="80" r="2" fill="#00ffff" opacity="0.5"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="award-item">
+                                    <div class="award-content">
+                                        <h4>校级优秀学生奖学金一等奖</h4>
+                                        <span class="award-date">2022-2023学年</span>
+                                    </div>
+                                    <div class="award-image-container">
+                                        <div class="award-image-wrapper">
+                                            <!-- 科技感奖学金SVG占位图 -->
+                                            <svg class="award-image" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                                <rect width="100" height="100" rx="5" fill="rgba(10,14,23,0.8)" stroke="#0099ff" stroke-width="1"/>
+                                                <rect x="5" y="5" width="90" height="90" rx="3" fill="none" stroke="#00ffff" stroke-width="0.5" stroke-dasharray="2"/>
+                                                <polygon points="50,20 65,50 35,50" fill="none" stroke="#0099ff" stroke-width="1"/>
+                                                <text x="50" y="65" text-anchor="middle" dominant-baseline="middle" font-size="4" fill="#00ffff">奖学金</text>
+                                                <path d="M30,75 L70,75" stroke="#0099ff" stroke-width="1"/>
+                                                <circle cx="50" cy="75" r="1" fill="#00ffff"/>
+                                                <circle cx="20" cy="20" r="2" fill="#00ffff" opacity="0.5"/>
+                                                <circle cx="80" cy="20" r="2" fill="#00ffff" opacity="0.5"/>
+                                                <circle cx="20" cy="80" r="2" fill="#00ffff" opacity="0.5"/>
+                                                <circle cx="80" cy="80" r="2" fill="#00ffff" opacity="0.5"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="award-item">
+                                    <div class="award-content">
+                                        <h4>校级嵌入式系统设计大赛二等奖</h4>
+                                        <span class="award-date">2022年5月</span>
+                                    </div>
+                                    <div class="award-image-container">
+                                        <div class="award-image-wrapper">
+                                            <!-- 科技感设计大赛SVG占位图 -->
+                                            <svg class="award-image" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                                <rect width="100" height="100" rx="5" fill="rgba(10,14,23,0.8)" stroke="#0099ff" stroke-width="1"/>
+                                                <rect x="5" y="5" width="90" height="90" rx="3" fill="none" stroke="#00ffff" stroke-width="0.5" stroke-dasharray="2"/>
+                                                <rect x="35" y="25" width="30" height="30" rx="2" fill="none" stroke="#0099ff" stroke-width="1"/>
+                                                <circle cx="50" cy="40" r="8" fill="none" stroke="#00ffff" stroke-width="0.5"/>
+                                                <path d="M42,55 L58,55" stroke="#0099ff" stroke-width="1"/>
+                                                <path d="M42,60 L58,60" stroke="#0099ff" stroke-width="1"/>
+                                                <path d="M42,65 L58,65" stroke="#0099ff" stroke-width="1"/>
+                                                <circle cx="20" cy="20" r="2" fill="#00ffff" opacity="0.5"/>
+                                                <circle cx="80" cy="20" r="2" fill="#00ffff" opacity="0.5"/>
+                                                <circle cx="20" cy="80" r="2" fill="#00ffff" opacity="0.5"/>
+                                                <circle cx="80" cy="80" r="2" fill="#00ffff" opacity="0.5"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -234,6 +399,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             createParticles();
             initClickEffects();
+            initPasswordProtection();
         });
 
         // 鼠标点击特效
@@ -257,6 +423,63 @@
                     document.body.removeChild(clickEffect);
                 }, 900);
             });
+        }
+
+        // 密码保护功能
+        function initPasswordProtection() {
+            const passwordContainer = document.getElementById('password-protection');
+            const resumeContent = document.getElementById('resume-content');
+            const passwordInput = document.getElementById('password-input');
+            const passwordSubmit = document.getElementById('password-submit');
+            const passwordError = document.getElementById('password-error');
+            
+            // 设置默认密码 (用户可以自行修改)
+            const correctPassword = 'embedded';
+            
+            // 密码提交事件
+            passwordSubmit.addEventListener('click', () => {
+                verifyPassword();
+            });
+            
+            // 回车键提交密码
+            passwordInput.addEventListener('keyup', (e) => {
+                if (e.key === 'Enter') {
+                    verifyPassword();
+                }
+            });
+            
+            // 验证密码函数
+            function verifyPassword() {
+                const enteredPassword = passwordInput.value;
+                
+                if (enteredPassword === correctPassword) {
+                    // 密码正确，显示简历内容
+                    passwordError.textContent = '';
+                    passwordContainer.style.opacity = '0';
+                    
+                    setTimeout(() => {
+                        passwordContainer.style.display = 'none';
+                        resumeContent.classList.remove('hidden');
+                        resumeContent.style.opacity = '0';
+                        
+                        // 为简历内容添加淡入动画
+                        setTimeout(() => {
+                            resumeContent.style.transition = 'opacity 1s ease-out';
+                            resumeContent.style.opacity = '1';
+                        }, 50);
+                    }, 500);
+                } else {
+                    // 密码错误，显示错误信息
+                    passwordError.textContent = '密码错误，请重试';
+                    passwordInput.value = '';
+                    
+                    // 添加错误动画效果
+                    passwordInput.classList.add('password-error-shake');
+                    setTimeout(() => {
+                        passwordInput.classList.remove('password-error-shake');
+                    }, 500);
+                }
+            }
         }
     </script>
 </body>
