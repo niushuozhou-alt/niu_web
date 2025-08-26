@@ -1,10 +1,35 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
+    <!-- 外部资源 -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+    <script>window.__vite_plugin_react_preamble_installed__ = true;</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>个人网站</title>
     <link rel="stylesheet" href="style.css">
+    <!-- 新增雷达图样式 -->
+    <style>
+        .hardware-radar {
+            position: relative;
+            background: rgba(10,14,23,0.6);
+            border: 1px solid #0099ff33;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 2rem 0;
+            box-shadow: 0 0 20px #0099ff33;
+        }
+        
+        .radar-legend span {
+            display: inline-block;
+            padding: 4px 12px;
+            margin: 0 8px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            background: linear-gradient(45deg, #0099ff33, #00ffff33);
+            transition: all 0.3s;
+        }
+    </style>
 </head>
 <body>
     <!-- 科幻背景元素 -->
@@ -28,17 +53,103 @@
     <div id="home" class="page active-page">
         <section class="hero">
             <div class="particles"></div>
+            <div class="circuit-board"></div>
             <div class="hero-content">
                 <div class="animated-logo">
                     <svg width="150" height="150" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="50" cy="50" r="45" fill="none" stroke="#0099ff" stroke-width="2"/>
-                        <path d="M30,50 Q50,30 70,50 T30,50" fill="none" stroke="#0099ff" stroke-width="2"/>
-                        <path d="M30,50 Q50,70 70,50 T30,50" fill="none" stroke="#0099ff" stroke-width="2"/>
+                        <circle cx="50" cy="50" r="40" fill="none" stroke="#00ffff" stroke-width="0.5" stroke-dasharray="5,3"/>
+                        <rect x="45" y="45" width="10" height="10" fill="#0099ff"/>
+                        <path d="M30,50 L70,50" stroke="#0099ff" stroke-width="2"/>
+                        <path d="M50,30 L50,70" stroke="#0099ff" stroke-width="2"/>
                     </svg>
                 </div>
-                <h1 class="animate-text">全栈架构师</h1>
-                <p class="animate-subtext">数字化转型领航者</p>
+                <h1 class="animate-text">嵌入式系统工程师</h1>
+                <p class="animate-subtext">硬件与软件的完美融合</p>
+                <div class="tech-highlights">
+                    <div class="highlight-item" data-skill="stm32">
+                        <span class="highlight-count">4+</span>
+                        <span class="highlight-text">STM32项目</span>
+                    </div>
+                    <div class="highlight-item" data-skill="iot">
+                        <span class="highlight-count">10+</span>
+                        <span class="highlight-text">物联网设备</span>
+                    </div>
+                    <div class="highlight-item" data-skill="protocols">
+                        <span class="highlight-count">8+</span>
+                        <span class="highlight-text">通信协议</span>
+                    </div>
+                </div>
                 <div class="scrolldown-indicator"></div>
+            </div>
+        </section>
+
+        <!-- 技能概览 -->
+        <section class="home-skills">
+            <h2>核心技术栈</h2>
+            <div class="skill-cards">
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="20" y="20" width="60" height="60" rx="5" fill="none" stroke="#0099ff" stroke-width="2"/>
+                            <rect x="30" y="30" width="40" height="40" rx="3" fill="none" stroke="#00ffff" stroke-width="1"/>
+                            <path d="M35,50 L45,50 M55,50 L65,50 M35,60 L65,60" stroke="#0099ff" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3>硬件平台</h3>
+                    <p>STM32F1/F4系列、Arduino、树莓派、ESP32/8266</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M30,30 L70,30 L70,70 L30,70 Z" fill="none" stroke="#0099ff" stroke-width="2"/>
+                            <path d="M30,30 L70,70 M70,30 L30,70" stroke="#0099ff" stroke-width="2"/>
+                            <circle cx="50" cy="50" r="10" fill="none" stroke="#00ffff" stroke-width="1"/>
+                        </svg>
+                    </div>
+                    <h3>编程语言</h3>
+                    <p>C/C++、Python、嵌入式C、汇编语言</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20,50 C20,30 80,30 80,50 C80,70 20,70 20,50 Z" fill="none" stroke="#0099ff" stroke-width="2"/>
+                            <path d="M30,50 L70,50" stroke="#0099ff" stroke-width="2"/>
+                            <path d="M50,35 L50,65" stroke="#0099ff" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3>开发工具</h3>
+                    <p>Keil、IAR、STM32CubeIDE、Arduino IDE、VS Code</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 项目预览 -->
+        <section class="home-projects">
+            <h2>精选项目</h2>
+            <div class="project-grid">
+                <div class="project-item" onclick="showPage('projects')">
+                    <div class="project-image-container">
+                        <div class="project-pin">
+                            <span class="pin-label">VCC</span>
+                            <span class="pin-number">3.3V</span>
+                        </div>
+                        <div class="project-placeholder"></div>
+                    </div>
+                    <h3>智能安防系统</h3>
+                    <p>基于STM32和摄像头模块的人脸识别门禁</p>
+                </div>
+                <div class="project-item" onclick="showPage('projects')">
+                    <div class="project-image-container">
+                        <div class="project-pin">
+                            <span class="pin-label">GND</span>
+                            <span class="pin-number">0V</span>
+                        </div>
+                        <div class="project-placeholder"></div>
+                    </div>
+                    <h3>环境监测节点</h3>
+                    <p>基于ESP32的温湿度和空气质量监测系统</p>
+                </div>
             </div>
         </section>
     </div>
@@ -48,6 +159,17 @@
         <button class="back-button" onclick="showPage('home')">返回首页</button>
         <section class="section" id="about-section">
             <div class="container">
+    <!-- 新增硬件技能雷达图 -->
+    <div class="hardware-radar">
+        <canvas id="skillRadar"></canvas>
+        <div class="radar-legend">
+            <span class="stm32">STM32</span>
+            <span class="rtos">RTOS</span>
+            <span class="fpga">FPGA</span>
+            <span class="sensor">传感器</span>
+            <span class="protocol">通信协议</span>
+        </div>
+    </div
                 <!-- 密码保护界面 -->
                 <div id="password-protection" class="password-container">
                     <div class="password-box">
@@ -130,7 +252,24 @@
                             </div>
                         </div>
                         
-                        <!-- 科技感技术栈展示 -->
+                        <!-- 典型嵌入式项目 -->
+<div class="embedded-projects">
+    <h2 class="section-title">典型项目</h2>
+    <div class="project-card" data-chip="stm32f407">
+        <div class="pin-header">
+            <span class="pin-label">VCC</span>
+            <span class="pin-number">1</span>
+        </div>
+        <h3>四轴飞行器控制系统</h3>
+        <ul class="project-details">
+            <li>基于MPU6050的姿态解算</li>
+            <li>PID闭环控制算法</li>
+            <li>2.4GHz无线通信模块</li>
+        </ul>
+    </div>
+</div>
+
+<!-- 科技感技术栈展示 -->
                         <div class="tech-stack-container">
                             <h3>专业技能</h3>
                             <div class="tech-categories">
@@ -216,7 +355,7 @@
                                     <div class="award-image-container">
                                         <div class="award-image-wrapper">
                                             <!-- 科技感奖状SVG占位图 -->
-                                            <svg class="award-image" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                            <img src="award_placeholder.svg" class="award-image" alt="全国大学生电子设计竞赛一等奖">
                                                 <rect width="100" height="100" rx="5" fill="rgba(10,14,23,0.8)" stroke="#0099ff" stroke-width="1"/>
                                                 <rect x="5" y="5" width="90" height="90" rx="3" fill="none" stroke="#00ffff" stroke-width="0.5" stroke-dasharray="2"/>
                                                 <circle cx="50" cy="30" r="15" fill="none" stroke="#0099ff" stroke-width="1"/>
@@ -240,7 +379,7 @@
                                     <div class="award-image-container">
                                         <div class="award-image-wrapper">
                                             <!-- 科技感奖学金SVG占位图 -->
-                                            <svg class="award-image" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                            <img src="award_placeholder.svg" class="award-image" alt="校级优秀学生奖学金一等奖">
                                                 <rect width="100" height="100" rx="5" fill="rgba(10,14,23,0.8)" stroke="#0099ff" stroke-width="1"/>
                                                 <rect x="5" y="5" width="90" height="90" rx="3" fill="none" stroke="#00ffff" stroke-width="0.5" stroke-dasharray="2"/>
                                                 <polygon points="50,20 65,50 35,50" fill="none" stroke="#0099ff" stroke-width="1"/>
@@ -263,7 +402,7 @@
                                     <div class="award-image-container">
                                         <div class="award-image-wrapper">
                                             <!-- 科技感设计大赛SVG占位图 -->
-                                            <svg class="award-image" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                            <img src="award_placeholder.svg" class="award-image" alt="校级嵌入式系统设计大赛二等奖">
                                                 <rect width="100" height="100" rx="5" fill="rgba(10,14,23,0.8)" stroke="#0099ff" stroke-width="1"/>
                                                 <rect x="5" y="5" width="90" height="90" rx="3" fill="none" stroke="#00ffff" stroke-width="0.5" stroke-dasharray="2"/>
                                                 <rect x="35" y="25" width="30" height="30" rx="2" fill="none" stroke="#0099ff" stroke-width="1"/>
