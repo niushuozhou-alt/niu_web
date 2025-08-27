@@ -6,8 +6,9 @@
     <script>window.__vite_plugin_react_preamble_installed__ = true;</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人网站</title>
+    <title>个人网站 - 嵌入式系统工程师</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2245%22 fill=%22none%22 stroke=%22%230099ff%22 stroke-width=%222%22/><rect x=%2245%22 y=%2245%22 width=%2210%22 height=%2210%22 fill=%22%230099ff%22/></svg>">
     <!-- 新增雷达图样式 -->
     <style>
         .hardware-radar {
@@ -32,18 +33,70 @@
     </style>
 </head>
 <body>
+    <!-- 页面加载动画 -->    
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="45" fill="none" stroke="#0099ff" stroke-width="2" class="loading-circle"/>
+                    <circle cx="50" cy="50" r="40" fill="none" stroke="#00ffff" stroke-width="0.5" stroke-dasharray="5,3" class="loading-inner"/>
+                    <rect x="45" y="45" width="10" height="10" fill="#0099ff" class="loading-center"/>
+                </svg>
+            </div>
+            <div class="loading-text">加载中...</div>
+            <div class="loading-progress">
+                <div class="loading-bar"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 滚动进度条 -->
+    <div class="scroll-progress"></div>
+    
+    <!-- 返回顶部按钮 -->
+    <div class="back-to-top" id="backToTop">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 14L12 9L17 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </div>
+    
+    <!-- 音乐控制按钮 -->
+    <div class="music-control" id="musicControl">
+        <svg class="music-icon play-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="5,3 19,12 5,21" fill="currentColor"/>
+        </svg>
+        <svg class="music-icon pause-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+            <rect x="6" y="4" width="4" height="16" fill="currentColor"/>
+            <rect x="14" y="4" width="4" height="16" fill="currentColor"/>
+        </svg>
+    </div>
     <!-- 科幻背景元素 -->
     <div class="sci-fi-grid"></div>
     <div class="sci-fi-glow"></div>
     <div class="sci-fi-glow"></div>
     <!-- 导航栏 -->
     <nav class="navbar">
-        <div class="logo">我的网站</div>
-        <div class="nav-links">
-            <a href="javascript:void(0)" onclick="showPage('home')">首页</a>
-            <a href="javascript:void(0)" onclick="showPage('about')">关于我</a>
-            <a href="javascript:void(0)" onclick="showPage('projects')">项目</a>
-            <a href="javascript:void(0)" onclick="showPage('contact')">联系</a>
+        <div class="nav-container">
+            <div class="logo">我的网站</div>
+            <div class="nav-links">
+                <a href="javascript:void(0)" onclick="showPage('home')">首页</a>
+                <a href="javascript:void(0)" onclick="showPage('about')">关于我</a>
+                <a href="javascript:void(0)" onclick="showPage('projects')">项目</a>
+                <a href="javascript:void(0)" onclick="showPage('contact')">联系</a>
+            </div>
+            <!-- 移动端汉堡菜单 -->
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <!-- 移动端菜单 -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="javascript:void(0)" onclick="showPage('home'); closeMobileMenu();">首页</a>
+            <a href="javascript:void(0)" onclick="showPage('about'); closeMobileMenu();">关于我</a>
+            <a href="javascript:void(0)" onclick="showPage('projects'); closeMobileMenu();">项目</a>
+            <a href="javascript:void(0)" onclick="showPage('contact'); closeMobileMenu();">联系</a>
         </div>
     </nav>
 
@@ -98,6 +151,12 @@
                     </div>
                     <h3>硬件平台</h3>
                     <p>STM32F1/F4系列、Arduino、树莓派、ESP32/8266</p>
+                    <div class="skill-progress">
+                        <div class="progress-bar" data-progress="85">
+                            <div class="progress-fill"></div>
+                            <span class="progress-text">85%</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="skill-card">
                     <div class="skill-icon">
@@ -109,6 +168,12 @@
                     </div>
                     <h3>编程语言</h3>
                     <p>C/C++、Python、嵌入式C、汇编语言</p>
+                    <div class="skill-progress">
+                        <div class="progress-bar" data-progress="90">
+                            <div class="progress-fill"></div>
+                            <span class="progress-text">90%</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="skill-card">
                     <div class="skill-icon">
@@ -120,6 +185,12 @@
                     </div>
                     <h3>开发工具</h3>
                     <p>Keil、IAR、STM32CubeIDE、Arduino IDE、VS Code</p>
+                    <div class="skill-progress">
+                        <div class="progress-bar" data-progress="80">
+                            <div class="progress-fill"></div>
+                            <span class="progress-text">80%</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -488,138 +559,7 @@
             <p>© 2024 牛刀小试. 保留所有权利</p>
         </div>
     </footer>
-<script>
-        // 页面切换函数
-        function showPage(pageId) {
-            // 隐藏所有页面
-            const pages = document.querySelectorAll('.page');
-            pages.forEach(page => {
-                page.classList.remove('active-page');
-            });
-
-            // 显示目标页面
-            const targetPage = document.getElementById(pageId);
-            if (targetPage) {
-                targetPage.classList.add('active-page');
-                // 重置滚动位置
-                window.scrollTo(0, 0);
-            }
-        }
-
-        // 粒子系统
-        function createParticles() {
-            const particlesContainer = document.querySelector('.particles');
-            if (!particlesContainer) return;
-
-            const particleCount = 100;
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.classList.add('particle');
-
-                // 随机位置
-                const x = Math.random() * 100;
-                const y = Math.random() * 100;
-                particle.style.left = `${x}%`;
-                particle.style.top = `${y}%`;
-
-                // 随机大小
-                const size = Math.random() * 5 + 1;
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-
-                // 随机动画延迟
-                particle.style.animationDelay = `${Math.random() * 5}s`;
-
-                particlesContainer.appendChild(particle);
-            }
-        }
-
-        // 初始化
-        document.addEventListener('DOMContentLoaded', () => {
-            createParticles();
-            initClickEffects();
-            initPasswordProtection();
-        });
-
-        // 鼠标点击特效
-        function initClickEffects() {
-            document.addEventListener('click', (e) => {
-                const clickEffect = document.createElement('div');
-                clickEffect.classList.add('click-effect');
-                clickEffect.style.left = `${e.clientX - 50}px`;
-                clickEffect.style.top = `${e.clientY - 50}px`;
-                document.body.appendChild(clickEffect);
-
-                // 添加动画
-                setTimeout(() => {
-                    clickEffect.style.transition = 'all 0.8s cubic-bezier(0.22, 1, 0.36, 1)';
-                    clickEffect.style.transform = 'scale(1.5)';
-                    clickEffect.style.opacity = '0';
-                }, 10);
-
-                // 移除元素
-                setTimeout(() => {
-                    document.body.removeChild(clickEffect);
-                }, 900);
-            });
-        }
-
-        // 密码保护功能
-        function initPasswordProtection() {
-            const passwordContainer = document.getElementById('password-protection');
-            const resumeContent = document.getElementById('resume-content');
-            const passwordInput = document.getElementById('password-input');
-            const passwordSubmit = document.getElementById('password-submit');
-            const passwordError = document.getElementById('password-error');
-            
-            // 设置默认密码 (用户可以自行修改)
-            const correctPassword = 'embedded';
-            
-            // 密码提交事件
-            passwordSubmit.addEventListener('click', () => {
-                verifyPassword();
-            });
-            
-            // 回车键提交密码
-            passwordInput.addEventListener('keyup', (e) => {
-                if (e.key === 'Enter') {
-                    verifyPassword();
-                }
-            });
-            
-            // 验证密码函数
-            function verifyPassword() {
-                const enteredPassword = passwordInput.value;
-                
-                if (enteredPassword === correctPassword) {
-                    // 密码正确，显示简历内容
-                    passwordError.textContent = '';
-                    passwordContainer.style.opacity = '0';
-                    
-                    setTimeout(() => {
-                        passwordContainer.style.display = 'none';
-                        resumeContent.classList.remove('hidden');
-                        resumeContent.style.opacity = '0';
-                        
-                        // 为简历内容添加淡入动画
-                        setTimeout(() => {
-                            resumeContent.style.transition = 'opacity 1s ease-out';
-                            resumeContent.style.opacity = '1';
-                        }, 50);
-                    }, 500);
-                } else {
-                    // 密码错误，显示错误信息
-                    passwordError.textContent = '密码错误，请重试';
-                    passwordInput.value = '';
-                    
-                    // 添加错误动画效果
-                    passwordInput.classList.add('password-error-shake');
-                    setTimeout(() => {
-                        passwordInput.classList.remove('password-error-shake');
-                    }, 500);
-                }
-            }
-        }
-    </script>
+    <!-- 主要脚本文件 -->
+    <script src="script.js"></script>
 </body>
 </html>
